@@ -5,9 +5,12 @@ import com.example.librarymanagesystemborrowerservice.entity.Borrower;
 import com.example.librarymanagesystemborrowerservice.repository.BorrowerRepo;
 import com.example.librarymanagesystemborrowerservice.service.BorrowerService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class BorrowerServiceImpl implements BorrowerService {
@@ -37,5 +40,11 @@ public class BorrowerServiceImpl implements BorrowerService {
        }
        return false;
 
+    }
+
+    @Override
+    public List<BorrowerDto> getBorrowers() {
+        List<Borrower> borrowerList = borrowerRepo.findAll();
+        return modelMapper.map(borrowerList, new TypeToken<List<BorrowerDto>>(){}.getType());
     }
 }
