@@ -47,4 +47,15 @@ public class BorrowerServiceImpl implements BorrowerService {
         List<Borrower> borrowerList = borrowerRepo.findAll();
         return modelMapper.map(borrowerList, new TypeToken<List<BorrowerDto>>(){}.getType());
     }
+
+    @Override
+    public boolean deleteBorrower(Integer id) {
+        if (borrowerRepo.existsById(id)){
+            System.out.println("1");
+            borrowerRepo.deleteById(id);
+            System.out.println("2");
+            return true;
+        }
+        return false;
+    }
 }

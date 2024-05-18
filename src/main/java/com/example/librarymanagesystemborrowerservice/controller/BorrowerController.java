@@ -26,4 +26,12 @@ public class BorrowerController {
     public List<BorrowerDto> getAllBorrowers(){
          return borrowerService.getBorrowers();
     }
+
+    @DeleteMapping("/deleteBorrower/{id}")
+     public Response deleteBorrower(@PathVariable Integer id){
+          if (borrowerService.deleteBorrower(id)){
+             return new Response("","Delete Successfully..");
+          }
+          return new Response("","Delete Fail...");
+     }
 }
