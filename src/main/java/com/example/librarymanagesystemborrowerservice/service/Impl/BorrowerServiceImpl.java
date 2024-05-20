@@ -56,4 +56,11 @@ public class BorrowerServiceImpl implements BorrowerService {
         }
         return false;
     }
+
+    @Override
+    public BorrowerDto serachByUserName(String userName) {
+        return modelMapper.map(borrowerRepo.findByUsername(userName), BorrowerDto.class);
+
+    }
+
 }

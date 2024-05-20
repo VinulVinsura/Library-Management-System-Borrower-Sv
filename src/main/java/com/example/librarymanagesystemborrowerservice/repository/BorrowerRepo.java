@@ -5,5 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BorrowerRepo extends JpaRepository<Borrower,Integer> {
 
+    Borrower findByUsername(String userName);
 
 }

@@ -2,10 +2,12 @@ package com.example.librarymanagesystemborrowerservice.controller;
 
 import com.example.librarymanagesystemborrowerservice.dto.BorrowerDto;
 import com.example.librarymanagesystemborrowerservice.dto.Response;
+import com.example.librarymanagesystemborrowerservice.entity.Borrower;
 import com.example.librarymanagesystemborrowerservice.service.BorrowerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.SecureRandom;
 import java.util.List;
 
 @RestController
@@ -33,5 +35,9 @@ public class BorrowerController {
              return new Response("","Delete Successfully..");
           }
           return new Response("","Delete Fail...");
+     }
+     @GetMapping("/searchByUserName/{userName}")
+    public BorrowerDto searchByUserName (@PathVariable String userName){
+         return borrowerService.serachByUserName(userName);
      }
 }
