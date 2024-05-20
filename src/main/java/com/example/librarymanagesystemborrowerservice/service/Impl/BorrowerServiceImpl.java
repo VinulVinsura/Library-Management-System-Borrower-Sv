@@ -18,12 +18,10 @@ public class BorrowerServiceImpl implements BorrowerService {
     @Autowired
     BorrowerRepo borrowerRepo;
 
+    @Autowired
     ModelMapper modelMapper;
 
-    @Bean
-    public void setModelMapper(){
-        this.modelMapper=new ModelMapper();
-    }
+
 
     @Override
     public boolean addBorrower(BorrowerDto borrowerDto) {
