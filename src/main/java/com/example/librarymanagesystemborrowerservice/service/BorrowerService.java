@@ -10,4 +10,5 @@ public interface BorrowerService {
      List<BorrowerDto> getBorrowers();
      boolean deleteBorrower(Integer Id);
      BorrowerDto serachByUserName(String userName);
+     boolean isExistsByUserName(String userName);
 }

@@ -11,13 +11,13 @@ import lombok.ToString;
 
 public class BorrowerDto {
     private Integer id;
-    private String borrower_Id;
     private String username;
     private String password;
     private String firstName;
     private String lastName;
     private String email;
     private String address;
+    private String country;
     private String phoneNum;
 
 }

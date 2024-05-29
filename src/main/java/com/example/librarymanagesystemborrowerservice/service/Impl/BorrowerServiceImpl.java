@@ -25,13 +25,14 @@ public class BorrowerServiceImpl implements BorrowerService {
 
     @Override
     public boolean addBorrower(BorrowerDto borrowerDto) {
-       if (borrowerDto.getBorrower_Id()!=null &&
+       if (
                borrowerDto.getFirstName()!=null &&
                borrowerDto.getLastName()!=null &&
                borrowerDto.getEmail() !=null &&
                borrowerDto.getAddress()!=null &&
                borrowerDto.getPassword()!=null &&
                borrowerDto.getUsername()!=null &&
+               borrowerDto.getCountry() !=null &&
                borrowerDto.getPhoneNum()!=null){
            borrowerRepo.save(modelMapper.map(borrowerDto, Borrower.class));
            return true;
@@ -61,6 +62,11 @@ public class BorrowerServiceImpl implements BorrowerService {
     public BorrowerDto serachByUserName(String userName) {
         return modelMapper.map(borrowerRepo.findByUsername(userName), BorrowerDto.class);
 
+    }
+
+    @Override
+    public boolean isExistsByUserName(String userName) {
+        return borrowerRepo.existsByUsername(userName);
     }
 
 }

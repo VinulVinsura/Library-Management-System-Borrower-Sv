@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Response {
-
-    private String status;
-
+public class LoginDataDto {
+    private String email;
+    private String password;
 }

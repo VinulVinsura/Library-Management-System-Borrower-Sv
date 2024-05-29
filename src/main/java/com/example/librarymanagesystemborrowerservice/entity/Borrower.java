@@ -15,12 +15,12 @@ public class Borrower {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String borrower_Id;
     private String username;
     private String password;
     private String firstName;
     private String lastName;
     private String email;
     private String address;
+    private String country;
     private String phoneNum;
 }
