@@ -22,4 +22,10 @@ public class LoginServiceImpl implements LoginService {
         LoginData loginData = loginRepo.save(modelMapper.map(loginDataDto, LoginData.class));
         log.info(loginData.toString());
     }
+
+    @Override
+    public boolean loginValidation(LoginDataDto loginDataDto) {
+        return loginRepo.existsByEmailAndPassword(loginDataDto.getEmail(),loginDataDto.getPassword());
+
+    }
 }
