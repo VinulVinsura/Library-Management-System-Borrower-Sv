@@ -4,6 +4,7 @@ import com.example.librarymanagesystemborrowerservice.dto.BorrowerDto;
 import com.example.librarymanagesystemborrowerservice.entity.Borrower;
 import com.example.librarymanagesystemborrowerservice.repository.BorrowerRepo;
 import com.example.librarymanagesystemborrowerservice.service.BorrowerService;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Slf4j
 public class BorrowerServiceImpl implements BorrowerService {
 
     @Autowired
@@ -48,14 +50,13 @@ public class BorrowerServiceImpl implements BorrowerService {
     }
 
     @Override
-    public boolean deleteBorrower(Integer id) {
-        if (borrowerRepo.existsById(id)){
-            System.out.println("1");
-            borrowerRepo.deleteById(id);
-            System.out.println("2");
+    public boolean deleteBorrower(String username) {
+        Integer i = borrowerRepo.deleteByUsername(username);
+        if (i>0){
             return true;
         }
         return false;
+
     }
 
     @Override

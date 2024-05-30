@@ -8,7 +8,7 @@ import java.util.List;
 public interface BorrowerService {
      boolean addBorrower(BorrowerDto borrowerDto);
      List<BorrowerDto> getBorrowers();
-     boolean deleteBorrower(Integer Id);
+     boolean deleteBorrower(String username);
      BorrowerDto serachByUserName(String userName);
      boolean isExistsByUserName(String userName);
 }

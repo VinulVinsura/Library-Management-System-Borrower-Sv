@@ -28,4 +28,14 @@ public class LoginServiceImpl implements LoginService {
         return loginRepo.existsByEmailAndPassword(loginDataDto.getEmail(),loginDataDto.getPassword());
 
     }
+
+
+
+
+    @Override
+    public boolean deleteLoginData(String userName) {
+        Integer i = loginRepo.deleteByUserName(userName);
+        log.info(i.toString());
+        return true;
+    }
 }
